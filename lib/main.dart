@@ -2,74 +2,86 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Game List',
-          style: TextStyle(
-            fontSize: 26, // Bigger font size
-            fontWeight: FontWeight.bold, // Bold text
-            fontFamily: 'Poppins', // Clean, modern font
-            letterSpacing: 1.2, // Spacing between letters for a modern touch
-            shadows: [
-              Shadow(
-                blurRadius: 10,
-                color: Colors.black.withOpacity(0.5),
-                offset: Offset(2, 2),
-              ),
-            ],
-          ),
-        ),
-        backgroundColor: Colors.transparent, // Make the AppBar background transparent
-        elevation: 0, // Remove the default shadow of AppBar
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blueAccent, Colors.lightBlue], // Gradient background
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          // First text item in the column
-          Text(
-            'Welcome to Game List!',
-            style: TextStyle(
-              fontSize: 22,
+      home: Scaffold (
+        appBar: AppBar(
+          title: Text ('Game List App' , style: TextStyle(
+              fontSize: 30,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
-              letterSpacing: 1.2,
-              fontFamily: 'Poppins',
+              color: Colors.blue[50],
+              shadows: [
+                Shadow(
+                    blurRadius:10.0,
+                    color: Colors.black,
+                    offset: Offset(2.0,2.0) ),
+              ]
+          ),),
+          backgroundColor: Colors.blue[100],
+        ),
+        body: Column(
+          children: [
+            Container( color: Colors.black12, margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Name:', style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20),
+                  ),
+
+              Container(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20,),
+                child:
+                  Text('Karl Ryzen E. Magsino', style: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 20,
+                  ),
+                  ),
+              ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 20), // Space between text items
-          Text(
-            'Choose your favorite game',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-              color: Colors.blueGrey,
-              letterSpacing: 1.0,
-              fontFamily: 'Roboto',
+            Container(color: Colors.black12, margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Age:', style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20),
+                  ),
+
+                  Container(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20,),
+                  child: Text('21 years old',
+                    style: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 20,
+                    ),
+                  ),
             ),
-          ),
-          SizedBox(height: 30), // Space before the next text
-          Text(
-            'Stay tuned for upcoming features!',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w300,
-              color: Colors.grey[600],
-              letterSpacing: 1.0,
-              fontFamily: 'Arial',
+    ],
+  ),
             ),
-          ),
-        ],
-      ),
-    ),
-  ));
+            Container(color: Colors.black12, margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Gender:', style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20),
+                  ),
+
+              Container(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20,),
+                child:
+                  Text('Male', style: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 20,),
+                  ),),],),
+            ),
+
+
+
+          ],
+        ),
+      )));
 }
