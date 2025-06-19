@@ -32,45 +32,43 @@ void main() {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // First text item in the column
-            Text(
-              'Welcome to Game List!',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                letterSpacing: 1.2,
-                fontFamily: 'Poppins',
-              ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          // First text item in the column
+          Text(
+            'Welcome to Game List!',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              letterSpacing: 1.2,
+              fontFamily: 'Poppins',
             ),
-            SizedBox(height: 20), // Space between text items
-            Text(
-              'Choose your favorite game',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-                color: Colors.blueGrey,
-                letterSpacing: 1.0,
-                fontFamily: 'Roboto',
-              ),
+          ),
+          SizedBox(height: 20), // Space between text items
+          Text(
+            'Choose your favorite game',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w400,
+              color: Colors.blueGrey,
+              letterSpacing: 1.0,
+              fontFamily: 'Roboto',
             ),
-            SizedBox(height: 30), // Space before the next text
-            Text(
-              'Stay tuned for upcoming features!',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w300,
-                color: Colors.grey[600],
-                letterSpacing: 1.0,
-                fontFamily: 'Arial',
-              ),
+          ),
+          SizedBox(height: 30), // Space before the next text
+          Text(
+            'Stay tuned for upcoming features!',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
+              color: Colors.grey[600],
+              letterSpacing: 1.0,
+              fontFamily: 'Arial',
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   ));
