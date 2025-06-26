@@ -1,75 +1,133 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Game List',
-          style: TextStyle(
-            fontSize: 26, // Bigger font size
-            fontWeight: FontWeight.bold, // Bold text
-            fontFamily: 'Poppins', // Clean, modern font
-            letterSpacing: 1.2, // Spacing between letters for a modern touch
-            shadows: [
-              Shadow(
-                blurRadius: 10,
-                color: Colors.black.withOpacity(0.5),
-                offset: Offset(2, 2),
-              ),
-            ],
-          ),
-        ),
-        backgroundColor: Colors.transparent, // Make the AppBar background transparent
-        elevation: 0, // Remove the default shadow of AppBar
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blueAccent, Colors.lightBlue], // Gradient background
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'MyGameList',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // ── Top navigation bar ────────────────────────────────────────────────
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                const Text(
+                  'MyGameList',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.account_circle, size: 32),
+                  onPressed: () {},
+                ),
+              ],
             ),
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          // First text item in the column
-          Text(
-            'Welcome to Game List!',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              letterSpacing: 1.2,
-              fontFamily: 'Poppins',
+
+      // ── Body ──────────────────────────────────────────────────────────────
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // One-line greeting
+            Row(
+              children: const [
+                Text(
+                  'Welcome',
+                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(width: 8), // small gap
+                Text(
+                  'Ryzen',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
-          ),
-          SizedBox(height: 20), // Space between text items
-          Text(
-            'Choose your favorite game',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-              color: Colors.blueGrey,
-              letterSpacing: 1.0,
-              fontFamily: 'Roboto',
+
+            const SizedBox(height: 32),
+
+            // Centered tiles
+            Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  NavTile(label: 'Account', icon: Icons.person_outline),
+                  NavTile(label: 'My Worlds', icon: Icons.public),
+                  NavTile(label: 'My Items', icon: Icons.inventory_2_outlined),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 30), // Space before the next text
-          Text(
-            'Stay tuned for upcoming features!',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w300,
-              color: Colors.grey[600],
-              letterSpacing: 1.0,
-              fontFamily: 'Arial',
-            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NavTile extends StatelessWidget {
+  final String label;
+  final IconData icon;
+
+  const NavTile({super.key, required this.label, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 240,
+      height: 80,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Theme.of(context).colorScheme.primaryContainer,
+        boxShadow: const [
+          BoxShadow(
+            blurRadius: 6,
+            offset: Offset(0, 3),
+            spreadRadius: 1,
+            color: Colors.black12,
           ),
         ],
       ),
-    ),
-  ));
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 28),
+            const SizedBox(width: 12),
+            Text(
+              label,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
