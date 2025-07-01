@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard ({super.key});
+  const Dashboard({super.key});
 
   void _showUnderConstruction(BuildContext context) {
     showDialog(
@@ -164,6 +164,12 @@ class Dashboard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/add');
+        },
+        child: const Icon(Icons.add), // You can add an icon here
       ),
     );
   }
