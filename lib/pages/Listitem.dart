@@ -72,17 +72,25 @@ class _ListitemState extends State<Listitem> {
     Game(name: 'Growtopia:', description: 'Trading stuff: Learn how to monopolize your wealth!!!', rate: 3, imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Growtopia.jpg/250px-Growtopia.jpg'),
     Game(name: 'Grow A Garden:', description: 'Building garden: Design your own garden and show it to other!!!', rate: 4, imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WVA1dne-Kt3LbqoS_j6prkI4Gr9miUPefw&s'),
     Game(name: 'Minecraft:', description: 'Creative stuffs: building house, designing and survival!!!', rate: 5, imageUrl: 'https://platform.polygon.com/wp-content/uploads/sites/2/2024/08/s-l1600.jpg?quality=90&strip=all&crop=0%2C5.8203125%2C100%2C88.359375&w=2400'),
+    Game(name: 'Minecraft:', description: 'Creative stuffs: building house, designing and survival!!!', rate: 5, imageUrl: 'https://platform.polygon.com/wp-content/uploads/sites/2/2024/08/s-l1600.jpg?quality=90&strip=all&crop=0%2C5.8203125%2C100%2C88.359375&w=2400'),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyCustomAppBar(),
-
-      body: Column(
-        children: games.map((game){
-          return Itemcard(games: game);
-        }).toList(),
+      body: SingleChildScrollView(  // Wrap the Column in a scrollable widget
+        child: Column(
+          children: games.map((game) {
+            return Itemcard(games: game);
+          }).toList(),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/add');
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

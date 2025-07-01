@@ -7,6 +7,11 @@ class Addgame extends StatefulWidget {
   State<Addgame> createState() => _AddgameState();
 }
 
+final _formKey = GlobalKey<FormState>();
+String _name = '';
+String _description = '';
+int _rating = 0;
+
 class _AddgameState extends State<Addgame> {
   @override
   Widget build(BuildContext context) {
@@ -17,6 +22,7 @@ class _AddgameState extends State<Addgame> {
       body: Container(
         margin: EdgeInsets.all(20),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               Text('Add Work'),
@@ -31,6 +37,18 @@ class _AddgameState extends State<Addgame> {
                     ),
                     labelText: 'Male or Female?',
                   ),
+
+
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please add a name';
+                    }
+                    return null;
+                  }
+
+
+
+
                 ),
               ),
               Padding(
@@ -63,6 +81,14 @@ class _AddgameState extends State<Addgame> {
                 padding: EdgeInsets.only(top: 20),
                 child: ElevatedButton(
                   onPressed: () {
+
+                    if (_formKey.currentState!.validate()){
+                      print('The form is Validated');
+                    }
+
+
+
+
                     // Action when Save is tapped
                   },
                   style: ElevatedButton.styleFrom(
